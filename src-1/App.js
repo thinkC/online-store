@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar';
@@ -8,10 +9,6 @@ import Details from './components/Details';
 import Cart from './components/Cart';
 import Product from './components/Product';
 import Default from './components/Default';
-import Modal from './components/Modal';
-import Register from './components/Register';
-import Login from './components/Login';
-//import { detailProduct } from './data';
 
 class App extends Component {
   render() {
@@ -22,11 +19,8 @@ class App extends Component {
           <Route exact path="/" component={ProductList} />
           <Route path="/details" component={Details} />
           <Route path="/cart" component={Cart} />
-          <Route path="/register" component={Register} />
-          <Route path="/login" component={Login} />
           <Route component={Default} />
         </Switch>
-        <Modal />
       </React.Fragment>
     )
 

@@ -22,31 +22,6 @@ https://www.iconfinder.com/Makoto_msk */}
                             product
                         </Link>
                     </li>
-                    <li className="nav-item ml-5">
-                        <Link to="/" className="nav-link">
-                            login
-                        </Link>
-                    </li>
-                    <li className="nav-item ml-5">
-                        <Link to="/" className="nav-link">
-                            logout
-                        </Link>
-                    </li>
-                    <li className="nav-item ml-5">
-                        <Link to="/register" className="nav-link">
-                            register
-                        </Link>
-                    </li>
-                    <li className="nav-item ml-5">
-                        <Link to="/" className="nav-link">
-                            about us
-                        </Link>
-                    </li>
-                    <li className="nav-item ml-5">
-                        <Link to="/" className="nav-link">
-                            contact us
-                        </Link>
-                    </li>
                 </ul>
                 <Link to="/cart" className="ml-auto">
                     <ButtonContainer>

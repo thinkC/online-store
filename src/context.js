@@ -41,13 +41,14 @@ class ProductProvider extends Component {
 
     getItem = (id) => {
         const product = this.state.products.find(item => item.id === id);
+        //console.log(product)
         return product;
     }
 
     handleDetail = (id) => {
         // console.log('hello from detail');
         const product = this.getItem(id);
-        console.log(product)
+        //console.log(product)
         this.setState(() => {
             return { detailProduct: product }
         })
@@ -57,6 +58,7 @@ class ProductProvider extends Component {
         let tempProducts = [...this.state.products];
         const index = tempProducts.indexOf(this.getItem(id));
         const product = tempProducts[index];
+        //console.log(product)
         product.inCart = true;
         product.count = 1;
         const price = product.price;
@@ -87,6 +89,7 @@ class ProductProvider extends Component {
         //console.log('this is increment method');
         let tempCart = [...this.state.cart];
         const selectedProduct = tempCart.find((item) => item.id === id);
+        //console.log(selectedProduct)
         const index = tempCart.indexOf(selectedProduct);
         const product = tempCart[index];
 
@@ -125,6 +128,7 @@ class ProductProvider extends Component {
         let tempProducts = [...this.state.products];
         let tempCart = [...this.state.cart];
         tempCart = tempCart.filter((item) => item.id !== id);
+        //console.log(tempCart)
 
         const index = tempProducts.indexOf(this.getItem(id));
         let removedProduct = tempProducts[index];
@@ -153,6 +157,7 @@ class ProductProvider extends Component {
 
     addTotal = () => {
         let subTotal = 0;
+        //console.log(this.state.cart)
         this.state.cart.map((item) => (subTotal += item.total));
         const tempTax = subTotal * 0.1;
         const tax = parseFloat(tempTax.toFixed(2));
