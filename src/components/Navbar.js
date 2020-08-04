@@ -6,6 +6,7 @@ import { ButtonContainer } from './Button';
 
 export default class Navbar extends Component {
     render() {
+        const { isAuthenticated, login, logout } = this.props.auth;
         return (
             <NavWrapper className="navbar navbar-expand-sm  navbar-dark px-sm-5">
                 {/* 
@@ -22,6 +23,7 @@ https://www.iconfinder.com/Makoto_msk */}
                             product
                         </Link>
                     </li>
+<<<<<<< HEAD
                     <li className="nav-item ml-5">
                         <Link to="/" className="nav-link">
                             login
@@ -46,6 +48,23 @@ https://www.iconfinder.com/Makoto_msk */}
                         <Link to="/" className="nav-link">
                             contact us
                         </Link>
+=======
+                    {/* <li className="nav-item ml-5">
+                        <Link to="/login" className="nav-link" onClick={this.props.auth.login}>
+                            login
+                        </Link>
+                    </li> */}
+
+                    {/* <li className="nav-item ml-5">
+                        <Link to="/login" className="nav-link" >
+                            login
+                        </Link>
+                    </li> */}
+                    <li className="nav-item ml-5">
+                        <button onClick={isAuthenticated() ? logout : login}>
+                            {isAuthenticated() ? 'Log Out' : 'Log In'}
+                        </button>
+>>>>>>> 2980309aa5359d8af3da7ac4e51888a335f7d670
                     </li>
                 </ul>
                 <Link to="/cart" className="ml-auto">

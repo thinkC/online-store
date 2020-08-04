@@ -1,29 +1,45 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Navbar from './components/Navbar';
 import ProductList from './components/ProductList';
 import Details from './components/Details';
+import Profile from './components/Profile';
 import Cart from './components/Cart';
 import Product from './components/Product';
 import Default from './components/Default';
 import Modal from './components/Modal';
+<<<<<<< HEAD
 import Register from './components/Register';
 import Login from './components/Login';
+=======
+import Auth from './Auth/Auth';
+import Callback from './components/Callback';
+>>>>>>> 2980309aa5359d8af3da7ac4e51888a335f7d670
 //import { detailProduct } from './data';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.auth = new Auth(this.props.history)
+  }
   render() {
     return (
       <React.Fragment>
-        <Navbar />
+        <Navbar auth={this.auth} />
         <Switch>
-          <Route exact path="/" component={ProductList} />
+          {/* <Route exact path="/" component={ProductList} /> */}
+          <Route exact path="/" render={props => <ProductList auth={this.auth} {...props} />} />
           <Route path="/details" component={Details} />
           <Route path="/cart" component={Cart} />
           <Route path="/register" component={Register} />
           <Route path="/login" component={Login} />
+          {/* <Route path="/login" render={props => <Login auth={this.auth} {...props} />} /> */}
+
+          <Route path="/callback" render={props => <Callback auth={this.auth} {...props} />} />
+
+          <Route path="/profile" render={props => this.auth.isAuthenticated() ? <Profile auth={this.auth} {...props} /> : <Redirect to="/" />} />
           <Route component={Default} />
         </Switch>
         <Modal />
